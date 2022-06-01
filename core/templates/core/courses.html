@@ -1,0 +1,21 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<div class="container-1 main-grid">
+    {%for course in object_list%}
+        <div class="card" style="margin-top: 20px;">
+            <a href="{%url 'course-details' course.slug %}" class="links-color"">
+                <img src="{{course.image.url}}" alt="" class="image mx-auto" style="object-fit: fill; width:100%; height:auto">
+                <h4 style="padding: 10px; text-align:center">{{course.title}}</h4>
+                <p class="description" style="padding: 10px;">{{course.description |safe}}</p>
+            </a>
+        </div>
+    {%empty%}
+           <div style="padding-bottom:60px;">
+             <h1>There are no courses yet</h1>
+           </div>
+    {%endfor%}
+</div>
+
+{%endblock content%}
+
+

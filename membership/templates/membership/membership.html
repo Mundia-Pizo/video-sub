@@ -1,0 +1,54 @@
+{%extends 'blogs/layout.html'%}
+{%load static%}
+{%block content%}
+<div>
+    <div class="container mx-auto">
+        <div class="mx-auto">
+            <h1 class="text-center" style="margin-top: 10px;margin-bottom: 15px;">Upgrade Subscription</h1>
+            <div class="subscription mx-auto" style="padding: 30px; border-radius: 20px;">
+                <h3 style="margin-bottom: 10px;margin-top: 10px">Professional Subscription</h3>
+                <h4>Whats included</h4>
+                <ul class="">
+                    <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Writing clean resuable code.</li>
+                    <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Test driven Development.</li>
+                    <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Connection to Slack community.</li>
+                    <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Quizes and Tests.</li>
+                    <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Building real world applications.</li>
+                </ul>
+                    {%for membership in memberships%}
+                    <form>
+                        <button type="button" id="start-payment-button" style="margin:auto" onclick="makePayment()">Go Professional <strong>${{membership.price}}</strong><small> /month </small> </button>
+                    </form> 
+                    <script>
+                        function makePayment() {
+                            FlutterwaveCheckout({
+                            public_key: "FLWPUBK_TEST-5815cdc33d25c550283380763cf7c4c5-X",
+                            tx_ref: "titanic-48981487343MDI0NzMx",
+                            amount: parseFloat('{{membership.price}}'),
+                            currency: "USD",
+                            payment_options: "card, banktransfer, ussd",
+                            redirect_url: "http://localhost:8000/success",
+                            meta: {
+                                consumer_id: 23,
+                                consumer_mac: "92a3-912ba-1192a",
+                            },
+                            customer: {
+                                email: "{{user.email}}",
+                                phone_number: "08102909304",
+                                name: "{{user.username}}",
+                            },
+                            customizations: {
+                                title: "Think and Code",
+                                description: "Air Ticket Payment",
+                                logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+                            },
+                            });
+                        }
+                    </script>
+                        
+                    {%endfor%}
+            </div>
+        </div>
+    </div> 
+</div>
+{%endblock content%}

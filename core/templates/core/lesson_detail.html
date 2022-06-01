@@ -1,0 +1,27 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<div class="container-2 lesson-detail-grid"  ">
+    <div style="padding:0px 50px 0 30px ;">
+        {%if object is not None%}
+        <h1 style="margin-top: 25px;margin-bottom: 25px; text-align:center">{{object.title}}</h1>
+        {%else%}
+        <p>This is not your subscription plan. <a class="anchor" href="{%url 'payment'%}">Please Upgrade!!!!</a></p>
+        {%endif%}
+        <div class="notes">
+            <p>{{object.notes|safe}}</p>
+        </div>     
+    </div>
+    <div class="related-lessons all-lessons" >
+       {%for lesson in course.lessons%}
+       <a href="{{lesson.get_absolute_url}}" class="links-color">
+           <div class="side-lesson-scroll">
+               <img class="side-image-scroll" src="{{lesson.image.url}}" alt="">
+               <p class="padding-left:10px">{{lesson.title}}</p>
+           </div>
+        </a>
+       {%endfor%}
+    </div>
+</div>
+{%endblock content%}
+
+
