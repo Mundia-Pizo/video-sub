@@ -1,9 +1,9 @@
 {%extends 'blogs/layout.html'%}
 {%block content%}
 <div class="container mx-auto " >
-    <div class="space-bottom">
+    <div class="space-bottom">    
         <div class="blog lesson-style mx-auto">
-            <p>{{object.body|safe}}</p>
+            <p id="post-id">{{object.body|safe}}</p>
         </div> 
         <div class="space-bottom">
             <div class="lesson-style mx-auto">
@@ -15,6 +15,7 @@
                     <a href="{%url 'post-update' object.slug%}"  >Update</a>
                 {%endif%}
             </div>
-    </div>       
+       </div>       
+    </div>
 </div>
 {%endblock content%}

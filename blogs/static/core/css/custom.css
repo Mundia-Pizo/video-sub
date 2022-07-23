@@ -371,6 +371,9 @@ button {
   margin-bottom: 70px;
   flex-wrap: wrap;
 }
+.pre_color{
+  background-color: #c5cae9;
+}
 .fade-in div:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -444,6 +447,7 @@ form button {
   .main-grid,
   .search-grid {
     grid-template-columns: 3fr;
+    margin: 0px;
   }
   .site-logo{
     font-size:18px; 

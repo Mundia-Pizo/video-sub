@@ -7,6 +7,7 @@ const checkbox = document.getElementById('checkbox')
 const nodes = document.querySelectorAll('.links-color')
 const logo_color = document.querySelector('.site-logo-color')
 const card_nodes = document.querySelectorAll('.card')
+const pre_nodes = document.querySelectorAll('pre')
 
 
 function App() {}
@@ -36,6 +37,9 @@ function init() {
     card_nodes.forEach((card_node)=>{
       card_node.classList.add('card-color')
    })
+   pre_nodes.forEach((pre_node)=>{
+     pre_node.classList.add('pre_color')
+   })
   }
 
   checkbox.addEventListener('change', function() {
@@ -49,6 +53,9 @@ function init() {
       })
       card_nodes.forEach((card_node)=>{
          card_node.classList.toggle('card-color')
+      })
+      pre_nodes.forEach((pre_node)=>{
+        pre_node.classList.toggle('pre_color')
       })
   });
 }
@@ -70,4 +77,32 @@ iframe_nodes.forEach((node)=>{
    console.log(parent)
 
 })
+
+/*================================================
+  ADDING SOME JAVASCRIPT TO MAKE JUMP TO A SPECIFIC 
+  LOCATION ON A PAGE
+=================================================='*/
+
+const post_nodes  = document.getElementById('post-id')
+console.log(post_nodes)
+// post_nodes.forEach((node)=>{
+//    console.log(node)
+// })
+
+
+/*================================================
+  adding some color to the pre when in dark mode 
+=================================================='*/
+
+
+
+
+
+
+
+
+
+
+
+
 

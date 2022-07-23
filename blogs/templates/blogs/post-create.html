@@ -1,7 +1,7 @@
 {% extends "blogs/layout.html" %}
 {%load crispy_forms_tags%}
 {% block content %}
-<div class="space-bottom ">
+<div>
     <div class="form-class">
         <div class="col-md-8 mx-auto">
             <form  method="post" action="{% url 'post-create' %}" enctype="multipart/form-data">
@@ -14,4 +14,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock content%}
